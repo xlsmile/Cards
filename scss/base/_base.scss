@@ -15,16 +15,6 @@ html {
 body {
   background-color: $color-white;
   margin: 0 auto;
-  max-width: 120rem;
+  max-width: 114rem;
   width: 100%;
-
-  @include media(desk) {
-    background: $color-warning;
-  }
-  @include media(tablet) {
-    background: $color-success;
-  }
-  @include media(phone) {
-    background: $color-danger;
-  }
 }

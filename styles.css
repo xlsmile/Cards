@@ -17,29 +17,12 @@ html {
 body {
   background-color: #fff;
   margin: 0 auto;
-  max-width: 120rem;
+  max-width: 114rem;
   width: 100%;
 }
 
-@media (max-width: 100em) {
-  body {
-    background: #ff4500;
-  }
-}
-
-@media (max-width: 90em) {
-  body {
-    background: #808000;
-  }
-}
-
-@media (max-width: 48em) {
-  body {
-    background: #c92c68;
-  }
-}
-
 .title-alpha {
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.25);
   background: #323648;
   color: #f0ffff;
   margin-bottom: 4rem;
@@ -50,7 +33,7 @@ body {
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   grid-gap: 2rem;
   font-weight: 300;
 }
@@ -64,6 +47,7 @@ body {
   box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.25);
   background: #323648;
   color: #f0ffff;
+  animation: moveInFromTop 1.2s ease-in;
 }
 
 .card__items {
@@ -115,4 +99,19 @@ body {
   margin-bottom: -0.8rem;
   margin-top: 4rem;
   color: #f0ffff;
+}
+
+@keyframes moveInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-1.2rem);
+  }
+  80% {
+    opacity: 0.5;
+    transform: translateY(0.8rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -1,6 +1,6 @@
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   grid-gap: 2rem;
   font-weight: 300;
 }
@@ -31,6 +31,7 @@
       display: inline-block;
     }
   }
+  animation: moveInFromTop 1.2s ease-in;
 }
 
 .card-media {
@@ -51,5 +52,20 @@
     margin-bottom: -0.8rem;
     margin-top: 4rem;
     color: $color-alpha;
+  }
+}
+
+@keyframes moveInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-1.2rem);
+  }
+  80% {
+    opacity: 0.5;
+    transform: translateY(0.8rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

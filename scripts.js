@@ -1,5 +1,5 @@
 const fetchResults = () => {
-  fetch("https://randomuser.me/api/?results=5")
+  fetch("https://randomuser.me/api/?results=3")
     .then((response) => {
       if (!response.ok) {
         throw Error("Sorry, something went wrong, but we are working on this.");
