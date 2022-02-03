@@ -1,0 +1,118 @@
+/*======================
+as media-quires are not based on root element, but on browsers' default 16px unit, we need to convert everything to ems (not rems!) in media queries, as rems will not work! Therefore, to get ems as relative units, we devide desired breakpoints in px by 16.
+======================*/
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;700&display=swap");
+* {
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Cairo", sans-serif;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: #fff;
+  margin: 0 auto;
+  max-width: 120rem;
+  width: 100%;
+}
+
+@media (max-width: 100em) {
+  body {
+    background: #ff4500;
+  }
+}
+
+@media (max-width: 90em) {
+  body {
+    background: #808000;
+  }
+}
+
+@media (max-width: 48em) {
+  body {
+    background: #c92c68;
+  }
+}
+
+.title-alpha {
+  background: #323648;
+  color: #f0ffff;
+  margin-bottom: 4rem;
+  padding: 3.2rem 4rem;
+  font-size: 4.4rem;
+  font-weight: 300;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(25rem, 1fr));
+  grid-gap: 2rem;
+  font-weight: 300;
+}
+
+.card {
+  display: flex;
+  align-items: inherit;
+  flex-direction: column;
+  justify-content: stretch;
+  border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.25);
+  background: #323648;
+  color: #f0ffff;
+}
+
+.card__items {
+  list-style: none;
+  padding: 4rem;
+}
+
+.card__item {
+  font-size: 1.6rem;
+  padding: 1.2rem 0;
+}
+
+.card__item:first-child {
+  padding-top: 0;
+}
+
+.card__item:last-child {
+  padding-bottom: 0;
+}
+
+.card__item:not(:last-child) {
+  border-bottom: 1px solid #464c68;
+}
+
+.card__item > span {
+  display: inline-block;
+}
+
+.card-media {
+  display: flex;
+  align-items: inherit;
+  flex-direction: column;
+  justify-content: stretch;
+  background: linear-gradient(0deg, #323648 50%, #464c68 50%);
+  padding-top: 4rem;
+}
+
+.card-media__image {
+  display: block;
+  width: 35%;
+  margin: 0 auto;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1.6rem #464c68;
+}
+
+.card-media__caption {
+  font-size: 3.2rem;
+  align-self: center;
+  margin-bottom: -0.8rem;
+  margin-top: 4rem;
+  color: #f0ffff;
+}

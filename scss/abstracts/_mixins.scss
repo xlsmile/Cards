@@ -1,0 +1,39 @@
+@mixin flex($align, $direction, $justify) {
+  display: flex;
+  align-items: $align;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
+
+@mixin border-radius($topleft: 0.4rem, $topright: 0.4rem, $bottomright: 0.4rem, $bottomleft: 0.4rem) {
+  border-radius: $topleft $topright $bottomright $bottomleft;
+}
+
+@mixin box-shadow($x: 0, $y: 0.4rem, $blur: 0.8rem, $color: rgba($color-black, 0.25)) {
+  box-shadow: $x $y $blur $color;
+}
+
+/*======================
+as media-quires are not based on root element, but on browsers' default 16px unit, we need to convert everything to ems (not rems!) in media queries, as rems will not work! Therefore, to get ems as relative units, we devide desired breakpoints in px by 16.
+======================*/
+
+@mixin media($breakpoint) {
+  @if $breakpoint == desk {
+    // 1600px / 16px == 100
+    @media (max-width: 100em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tablet {
+    // 1440px / 16px == 71.25
+    @media (max-width: 90em) {
+      @content;
+    }
+  }
+  @if $breakpoint == phone {
+    // 768px / 16px == 48
+    @media (max-width: 48em) {
+      @content;
+    }
+  }
+}
