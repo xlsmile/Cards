@@ -13,26 +13,10 @@
   box-shadow: $x $y $blur $color;
 }
 
-/*======================
-as media-quires are not based on root element, but on browsers' default 16px unit, we need to convert everything to ems (not rems!) in media queries, as rems will not work! Therefore, to get ems as relative units, we devide desired breakpoints in px by 16.
-======================*/
-
 @mixin media($breakpoint) {
-  @if $breakpoint == desk {
-    // 1600px / 16px == 100
-    @media (max-width: 100em) {
-      @content;
-    }
-  }
-  @if $breakpoint == tablet {
-    // 1440px / 16px == 71.25
-    @media (max-width: 90em) {
-      @content;
-    }
-  }
   @if $breakpoint == phone {
     // 768px / 16px == 48
-    @media (max-width: 48em) {
+    @media only screen and (max-width: 48em) {
       @content;
     }
   }

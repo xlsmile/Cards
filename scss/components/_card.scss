@@ -3,6 +3,10 @@
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   grid-gap: 2rem;
   font-weight: 300;
+  @include media(phone) {
+    grid-template-columns: 1fr;
+    grid-gap: 0.8rem;
+  }
 }
 
 .card {
@@ -32,13 +36,16 @@
     }
   }
   animation: fadein 2s ease-in-out;
+
+  @include media(phone) {
+    border-radius: 0;
+  }
 }
 
 .card-media {
   @include flex(inherit, column, stretch);
   background: linear-gradient(0deg, $color-gamma 50%, $color-beta 50%);
   padding-top: 4rem;
-
   &__image {
     display: block;
     width: 35%;
