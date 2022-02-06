@@ -31,7 +31,7 @@
       display: inline-block;
     }
   }
-  animation: moveInFromTop 1.2s ease-in;
+  animation: fadein 2s ease-in-out;
 }
 
 .card-media {
@@ -44,7 +44,7 @@
     width: 35%;
     margin: 0 auto;
     border-radius: 50%;
-    box-shadow: 0 0 0 1.6rem $color-beta;
+    box-shadow: 0 0.4rem 0.8rem rgba($color-black, 0.25), 0 0 0 1.6rem $color-beta;
   }
   &__caption {
     font-size: $font-size-l;
@@ -55,17 +55,15 @@
   }
 }
 
-@keyframes moveInFromTop {
+@keyframes fadein {
+  80% {
+    opacity: 0;
+    transform: translateY(-4rem);
+  }
   0% {
     opacity: 0;
-    transform: translateY(-1.2rem);
-  }
-  80% {
-    opacity: 0.5;
-    transform: translateY(0.8rem);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
   }
 }

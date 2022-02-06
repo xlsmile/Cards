@@ -1,16 +1,14 @@
 const fetchResults = () => {
-  fetch("https://randomuser.me/api/?results=3")
+  fetch("https://randomuser.me/api/?results")
     .then((response) => {
       if (!response.ok) {
-        throw Error("Sorry, something went wrong, but we are working on this.");
+        throw Error("Sorry, something went wrong, but we are fixing it.");
       }
       return response.json();
     })
     .then((data) => {
-      console.log(data.results);
-      const html = data.results
-        .map((result) => {
-          return `
+      const html = data.results.map((result) => {
+        return `
             <div class="card">
               <figure class="card-media">
                 <img class="card-media__image" src="${result.picture.large}" alt="picture of ${result.name.first} ${result.name.last}">
@@ -26,13 +24,14 @@ const fetchResults = () => {
                 <li class="card__item"><strong>Phone:</strong> ${result.phone}</li>
               </ul>
             </div>`;
-        })
-        .join("");
-      document.querySelector(".cards").insertAdjacentHTML("afterbegin", html);
+      });
+      document.querySelector(".cards").insertAdjacentHTML("beforeend", html);
     })
     .catch((error) => {
       console.log(error);
     });
 };
 
-fetchResults();
+for (let i = 0; i < 3; i++) {
+  setTimeout(fetchResults());
+}
