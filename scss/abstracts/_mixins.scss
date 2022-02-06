@@ -1,3 +1,5 @@
+/* ========== MIXINS ========== */
+
 @mixin flex($align, $direction, $justify) {
   display: flex;
   align-items: $align;

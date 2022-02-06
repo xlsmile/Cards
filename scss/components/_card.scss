@@ -1,3 +1,5 @@
+/* ======= cards container ======= */
+
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -8,6 +10,8 @@
     grid-gap: 0.8rem;
   }
 }
+
+/* ========== each card ========== */
 
 .card {
   @include flex(inherit, column, stretch);
@@ -42,6 +46,8 @@
   }
 }
 
+/* ===== cards profile image area ===== */
+
 .card-media {
   @include flex(inherit, column, stretch);
   background: linear-gradient(0deg, $color-gamma 50%, $color-beta 50%);
@@ -61,6 +67,8 @@
     color: $color-alpha;
   }
 }
+
+/* ========= cards animation ========= */
 
 @keyframes fadein {
   80% {
