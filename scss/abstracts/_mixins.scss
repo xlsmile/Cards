@@ -11,8 +11,32 @@
   border-radius: $topleft $topright $bottomright $bottomleft;
 }
 
-@mixin box-shadow($x: 0, $y: 0.4rem, $blur: 0.8rem, $color: rgba($color-black, 0.25)) {
+@mixin box-shadow($x: 0, $y: 0.4rem, $blur: 1.2rem, $color: rgba($color-black, 0.5)) {
   box-shadow: $x $y $blur $color;
+}
+
+@mixin pseudo($ba: before, $content: "", $position: absolute, $inset: 0) {
+  position: relative;
+  &::#{$ba} {
+    content: $content;
+    position: $position;
+    inset: $inset;
+    @content;
+  }
+}
+
+@mixin hover-lift() {
+  @include pseudo() {
+    @include box-shadow;
+    opacity: 0;
+    transition: opacity 350ms ease-in-out;
+  }
+  &:hover,
+  &:focus {
+    &::before {
+      opacity: 1;
+    }
+  }
 }
 
 @mixin media($breakpoint) {

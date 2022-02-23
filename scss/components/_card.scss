@@ -2,7 +2,7 @@
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
   grid-gap: 2rem;
   font-weight: 300;
   @include media(phone) {
@@ -16,7 +16,7 @@
 .card {
   @include flex(inherit, column, stretch);
   @include border-radius();
-  @include box-shadow();
+  @include hover-lift();
   background: $color-gamma;
   color: $color-alpha;
   &__items {
